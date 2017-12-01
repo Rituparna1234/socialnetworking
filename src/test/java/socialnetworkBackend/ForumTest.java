@@ -36,10 +36,10 @@ static ForumDAO  forumDAO;
 	public void addTest()
 	{
 		Forum forum=new Forum();
-		forum.setForumId(143);
+		forum.setForumId(134);
 		forum.setForumName("assist");
 		forum.setForumContent(" suggestions");
-		forum.setUserId(145);
+		forum.setUserId(123);
 		forum.setStatus("Y");
 		forum.setUserName("Rimi");
 		forum.setCreateDate(new java.util.Date());

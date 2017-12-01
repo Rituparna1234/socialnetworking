@@ -1,6 +1,9 @@
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\UserDetailsDAO.java
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\UserDetails.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Config\DbConfig.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\ForumDAO.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\Forum.java
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\UserDetailsDAOImpl.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\BlogDAO.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\ForumDAOImpl.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\BlogDAOImpl.java

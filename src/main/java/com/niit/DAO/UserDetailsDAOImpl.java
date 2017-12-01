@@ -11,15 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.Model.UserDetails;
 
 
-@Repository("UserDAO")
+@Repository("UserDetailsDAO")
 public class UserDetailsDAOImpl implements UserDetailsDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 	
 	@Autowired
-	UserDetails	DAO userDAO;
+	UserDetailsDAO user;
 	
-	public UserDAOImpl(SessionFactory sessionFactory)
+	public UserDetailsDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}
@@ -27,7 +27,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 		
 	@Transactional
-	public boolean updateOnlineStatus(String status, User user) {
+	public boolean updateOnlineStatus(String status, UserDetails user) {
 		try
 		{
 			user.setIsOnline(status);
@@ -45,7 +45,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	
 	@Transactional
 	
-	public boolean addUserDetail(User user) {
+	public boolean addUserDetails(UserDetails user) {
 		try
 		{
 		sessionFactory.getCurrentSession().save(user);
@@ -61,17 +61,17 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 
 	@Transactional
-	public List<User> getAllUserDetails() {
+	public List<UserDetails> getAllUserDetails() {
 		Session session=sessionFactory.openSession();
-		 List<User> user=(List<User>)session.createQuery("from User").list();
+		 List<UserDetails> user=(List<UserDetails>)session.createQuery("from User").list();
 			session.close();
 			return user;
 	}
 
 @Transactional
-	public User getUserDetails(String username) {
+	public UserDetails getUserDetails(String username) {
 		Session session=sessionFactory.openSession();
-		User user=(User)session.get(User.class,username);
+		UserDetails user=(UserDetails)session.get(UserDetails.class,username);
 		session.close();
 		return user;
 	}
@@ -82,22 +82,5 @@ public boolean addUserDetail(UserDetails user) {
 	// TODO Auto-generated method stub
 	return false;
 }
-
-
-
-public User getUserDetails(String username) {
-	// TODO Auto-generated method stub
-	return null;
 }
 
-
-
-public User getUserDetails(String username) {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-	
-
-
-}

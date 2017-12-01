@@ -19,6 +19,7 @@ import com.niit.DAO.BlogDAO;
 import com.niit.DAO.BlogDAOImpl;
 import com.niit.DAO.ForumDAO;
 import com.niit.DAO.ForumDAOImpl;
+import com.niit.DAO.UserDetailsDAOImpl;
 import com.niit.Model.Blog;
 import com.niit.Model.Forum;
 
@@ -83,10 +84,18 @@ public class DbConfig {
 	
 	@Autowired
 	@Bean(name="forumDAO")
-	public ForumDAO getForumDAO(SessionFactory sessionFactory)
+	public ForumDAOImpl getForumDAO(SessionFactory sessionFactory)
 	{
 		System.out.println("Forum DAO object Created");
 		return new ForumDAOImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name="UserDetailsDAO")
+	public UserDetailsDAOImpl getUserDetailsDAO(SessionFactory sessionFactory)
+	{
+		System.out.println("UserDetails DAO object Created");
+		return new UserDetailsDAOImpl(sessionFactory);
 	}
 	
 }

@@ -3,5 +3,8 @@ com\niit\DAO\ForumDAO.class
 com\niit\Model\Blog.class
 com\niit\DAO\BlogDAOImpl.class
 com\niit\Model\Forum.class
+com\niit\Model\UserDetails.class
+com\niit\DAO\UserDetailsDAOImpl.class
+com\niit\DAO\UserDetailsDAO.class
 com\niit\DAO\BlogDAO.class
 com\niit\DAO\ForumDAOImpl.class

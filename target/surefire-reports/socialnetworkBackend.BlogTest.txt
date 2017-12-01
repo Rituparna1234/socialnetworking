@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: socialnetworkBackend.BlogTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 3.789 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 5.272 sec
