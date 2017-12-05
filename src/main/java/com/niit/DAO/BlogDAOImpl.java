@@ -12,9 +12,10 @@ import com.niit.Model.Blog;
 
 
 
-@Repository("BlogDAO")
-public class BlogDAOImpl implements BlogDAO 
-{
+
+@Repository("blogDAO")
+public class BlogDAOImpl implements BlogDAO {
+
 
 	@Autowired
 	SessionFactory sessionFactory;
@@ -28,8 +29,8 @@ public class BlogDAOImpl implements BlogDAO
 	}
 	
 	@Transactional
+	
 	public boolean addBlog(Blog blog) {
-
 		try
 		{
 		sessionFactory.getCurrentSession().save(blog);
@@ -41,79 +42,77 @@ public class BlogDAOImpl implements BlogDAO
 		return false;
 		}	
 	}
+
 	@Transactional
 	public boolean updateBlog(Blog blog) {
 		try
-		{
-		sessionFactory.getCurrentSession().saveOrUpdate(blog);
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println("Exception occured:"+e);
-		return false;
-		}	
-	}
+  		{
+ 		sessionFactory.getCurrentSession().update(blog);
 
+  		return true;
+  		}
+  		catch(Exception e)
+  		{
+
+ 		System.out.println("Exception occured:"+e);
+  		return false;
+  		}	
+	}
 	@Transactional
 	public boolean deleteBlog(Blog blog) {
 		try
-		{
-		sessionFactory.getCurrentSession().delete(blog);
+  		{
+ 		sessionFactory.getCurrentSession().update(blog);
+
+  		return true;
+  		}
+  		catch(Exception e)
+  		{
+
+ 		System.out.println("Exception occured:"+e);
+  		return false;
+  		}			
+	}
+	@Transactional
+	public Blog getBlog(int blogId)
+	{
+	Session session=sessionFactory.openSession();
+	Blog blog=(Blog)session.get(Blog.class, blogId);
+	session.close();
+	return blog;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Blog> getAllBlogs() {
+    Session session=sessionFactory.openSession();
+	List<Blog> blogList=(List<Blog>)session.createQuery("from Blog").list();
+	session.close();
+	return blogList;
+	}
+
+	public boolean approveBlog(Blog blog) {
+		try{
+		blog.setStatus("A");
+        sessionFactory.getCurrentSession().saveOrUpdate(blog);
 		return true;
 		}
-		catch(Exception e)
-		{
+		catch(Exception e){
 		System.out.println("Exception occured:"+e);
 		return false;
 		}	
 	}
-
-	public Blog getBlog(int blogId) {
-		Session session=sessionFactory.openSession();
-		Blog blog=(Blog)session.get(Blog.class, blogId);
-		session.close();
-		return blog;
-	}
-
 	
-	public List<Blog> getAllBlogs() {
-		Session session=sessionFactory.openSession();
-		
-		List<Blog> blogList=(List<Blog>)session.createQuery("from Blog").list();
-		session.close();
-		return blogList;
-		
-	}
-
 	@Transactional
-	public boolean approveBlog(Blog blog) {
-		{
-			try{
-				blog.setStatus("A");
-				sessionFactory.getCurrentSession().saveOrUpdate(blog);
-				return true;
-				}
-				catch(Exception e)
-				{
-				System.out.println("Exception occured:"+e);
-				return false;
-				}	
-			}
-	}
-
 	public boolean rejectBlog(Blog blog) {
 		try{
-			blog.setStatus("N");
-			sessionFactory.getCurrentSession().update(blog);
-			return true;
-			}
-			catch(Exception e)
-			{
-			System.out.println("Exception occured:"+e);
-			return false;
-			}	
-		
-	}	
-
-}
+		blog.setStatus("N");
+ 		sessionFactory.getCurrentSession().saveOrUpdate(blog);
+ 		return true;
+ 		}
+ 		catch(Exception e)
+ 		{
+ 		System.out.println("Exception occured:"+e);
+ 		return false;
+ 		}	
+ 		}
+	}

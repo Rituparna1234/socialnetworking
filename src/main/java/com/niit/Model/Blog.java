@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("unused")
 @Entity
 @Table
 public class Blog {
 	@Id
-@GeneratedValue
+
 	int blogId;
 	
 	String blogName;
 	String blogContent;
-	String username;
+	int userId;
 	String status;
 	int likes;
 	
@@ -46,12 +47,17 @@ public class Blog {
 		this.blogContent = blogContent;
 	}
 
-	public String getUsername() {
-		return username;
+	
+	
+
+	
+
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getStatus() {

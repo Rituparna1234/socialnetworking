@@ -6,9 +6,8 @@ import com.niit.Model.Blog;
 
 
 
-public interface BlogDAO 
-{
-	public boolean addBlog(Blog blog);
+public interface BlogDAO {
+public boolean addBlog(Blog blog);
 	
 	public boolean updateBlog(Blog blog);
 	
