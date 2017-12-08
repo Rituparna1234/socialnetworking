@@ -2,55 +2,62 @@ package com.niit.Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
-@Table
+@Table(name = "JOB")
+@Component
 public class Job {
 	@Id
-	int jobId;
-	String jobProfile;
-	String jobDesc;
-	String qualification;
-	String status;
-	Date postDate;
+	 @GeneratedValue
+    @Column(name = "JOB_ID")
+	private int JobId;
+	private String JobProfile;
+	private String JobDesc;
+	private String Qualification;
+	private String Status;
+	private Date PostDate;
 	public int getJobId() {
-	return jobId;
+		return JobId;
 	}
 	public void setJobId(int jobId) {
-	this.jobId = jobId;
+		JobId = jobId;
 	}
 	public String getJobProfile() {
-	return jobProfile;
+		return JobProfile;
 	}
 	public void setJobProfile(String jobProfile) {
-	this.jobProfile = jobProfile;
+		JobProfile = jobProfile;
 	}
 	public String getJobDesc() {
-	return jobDesc;
+		return JobDesc;
 	}
 	public void setJobDesc(String jobDesc) {
-	this.jobDesc = jobDesc;
+		JobDesc = jobDesc;
 	}
 	public String getQualification() {
-	return qualification;
+		return Qualification;
 	}
 	public void setQualification(String qualification) {
-	this.qualification = qualification;
+		Qualification = qualification;
 	}
 	public String getStatus() {
-	return status;
+		return Status;
 	}
 	public void setStatus(String status) {
-	this.status = status;
+		Status = status;
 	}
 	public Date getPostDate() {
-	return postDate;
+		return PostDate;
 	}
 	public void setPostDate(Date postDate) {
-	this.postDate = postDate;
+		PostDate = postDate;
 	}
-
+	
 }

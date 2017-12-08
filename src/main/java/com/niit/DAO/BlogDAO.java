@@ -20,5 +20,5 @@ public boolean addBlog(Blog blog);
 	public boolean approveBlog(Blog blog);
 	
 	public boolean rejectBlog(Blog blog);
-
+	
 }

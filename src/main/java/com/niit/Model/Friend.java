@@ -1,38 +1,40 @@
-/*package com.niit.Model;
+package com.niit.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
 @Entity
-@Table
+@Table(name = "FRIEND")
+@Component
 public class Friend {
 	@Id
-	@GeneratedValue
-	int friendId;
-	int userId;
-	String status;
-	public int getFriendId() {
-		return friendId;
-	}
-	public void setFriendId(int friendId) {
-		this.friendId = friendId;
-	}
+	 @GeneratedValue
+    @Column(name = "FRIEND_ID")
+	private int UserId;
+	private int FriendId;
+	private String Status;
 	public int getUserId() {
-		return userId;
+		return UserId;
 	}
 	public void setUserId(int userId) {
-		this.userId = userId;
+		UserId = userId;
+	}
+	public int getFriendId() {
+		return FriendId;
+	}
+	public void setFriendId(int friendId) {
+		FriendId = friendId;
 	}
 	public String getStatus() {
-		return status;
+		return Status;
 	}
 	public void setStatus(String status) {
-		this.status = status;
+		Status = status;
 	}
 	
-
 }
-
-
-*/

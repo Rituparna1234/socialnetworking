@@ -1,6 +1,7 @@
-package socialnetworkBackend;
+/*package socialnetworkBackend;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -15,11 +16,9 @@ import com.niit.DAO.UserDetailDAO;
 import com.niit.Model.UserDetail;
 
 
-
 @ComponentScan("com.niit")
 public class UserDetailTest {
-
-static UserDetailDAO  userDAO;
+static UserDetailDAO userDAO;
 	
 	@BeforeClass
 	public static void initialize()
@@ -28,42 +27,77 @@ static UserDetailDAO  userDAO;
 		context.register(DbConfig.class);
 		context.scan("com.niit");
 		context.refresh();
-
+		
 		userDAO=(UserDetailDAO)context.getBean("userDAO");
 	}
-	@Ignore
+	
+	//@Ignore
 	@Test
 	public void addUserTest()
 	{
 		UserDetail user=new UserDetail();
-		user.setUserId(13);
-		user.setFirstName("ram");
-		user.setLastName("raju");
-		user.setEmailId("ram12@gmail.com");
-		user.setPassword("1234");
-		user.setRole("Admin");
-		user.setStatus("available");
-		user.setIsOnline("N");
-		assertTrue("Problem in Inserting user", userDAO.addUserDetail(user));
+		user.setUserId(1003);
+		user.setFirstName("Rituparna");
+		user.setLastName("chatterjee");
+		user.setEmailId("rituparna.c@gmail.com");
+		user.setPassword("12345");
+		user.setRole("user");
+		user.setStatus("N");
+		user.setIsOnlime("Y");
+		assertTrue("Problem in Inserting User",userDAO.addUser(user));
+	
+	}
+	
+	@Ignore
+	@Test
+	public void updateUser()
+	{
+UserDetail user=new UserDetail();
+user.setUserId(1003);
+user.setFirstName("sravani");
+user.setLastName("m");
+user.setEmailId("sravani.m452@gmail.com");
+user.setPassword("12345");
+user.setRole("user");
+user.setStatus("Y");
+user.setIsOnlime("Y");
+assertTrue("Problem in Inserting User",userDAO.addUser(user));
 
 	}
-    @Ignore
+	
+	@Ignore
+	@Test
+	public void getUserTest(){
+		UserDetail user=(UserDetail)userDAO.getUser(1);
+		
+		System.out.println("FirstName:" + user.getFirstName());
+		System.out.println("Role:" +user.getRole());
+		
+		assertNotNull("user not found", user);
+	}
+	
+	@Ignore
+	@Test
+	public void deleteUserTest(){
+		UserDetail user=(UserDetail)userDAO.getUser(1);
+		assertTrue("Problem in deletion",userDAO.deleteUser(user));
+	}
+	@Ignore
+	@Test
+	public void approveUserTest(){
+		UserDetail user=(UserDetail)userDAO.getUser(2);
+		assertTrue("Problem in approving",userDAO.approveUser(user));
+	}
+	@Ignore
 	@Test
 	public void getAllUserTest(){
-		List<UserDetail> userList=(List<UserDetail>)userDAO.getAllUserDetails();
-		assertNotNull("Job list not found ",userList.get(0));
+		List<UserDetail> userList=(List<UserDetail>)userDAO.getAllusers();
+		assertNotNull("User list not found ",userList.get(0));
 		for(UserDetail user:userList)
 		{
-			System.out.println("EmailID:"+ user.getEmailId() + "Status:"+ user.getStatus());
+			System.out.println("UserID:"+user.getUserId() + "FirstName:"+user.getFirstName());
 		}
+	}
 		
-	}/*
-		@Test
-		public boolean updateOnlineStatus(){
-			UserDetail user=userDAO.getUserDetails("Raju");
-			assertTrue("problem in updating ", userDAO.updateOnlineStatus("Y", user));
-			return user != null;
-		}
-	}*/
-	
-}
+	}
+*/

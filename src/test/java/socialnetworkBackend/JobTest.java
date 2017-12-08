@@ -1,6 +1,7 @@
 package socialnetworkBackend;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -8,13 +9,15 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.niit.Config.DbConfig;
 import com.niit.DAO.JobDAO;
 import com.niit.Model.Job;
 
-public class JobTest {
 
+@ComponentScan("com.niit")
+public class JobTest {
 static JobDAO jobDAO;
 	
 	@BeforeClass
@@ -23,45 +26,72 @@ static JobDAO jobDAO;
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.register(DbConfig.class);
 		context.scan("com.niit");
-         context.refresh();
+		context.refresh();
 		
 		jobDAO=(JobDAO)context.getBean("jobDAO");
 	}
+	//@Ignore
+	@Test
+	public void addJobTest()
+	{
+		Job job=new Job();
+		job.setJobProfile("software");
+		job.setJobDesc("software trainer");
+		job.setQualification("btech");
+		job.setStatus("Y");
+		job.setPostDate(new java.util.Date());
+		
+		assertTrue("Problem in Inserting Job",jobDAO.addJob(job));
+	
+	}
 	
 	@Ignore
 	@Test
-	public void addJobTest(){
+	public void updateJob()
+	{
 		Job job=new Job();
-		job.setJobId(12);
-		job.setJobProfile("Software-IT");
-		job.setJobDesc("Software developer");
-		job.setQualification("B.SC/MBA");
-		job.setStatus("Eligible");
+		job.setJobProfile("software");
+		job.setJobDesc("software engineer");
+		job.setQualification("btech");
+		job.setStatus("Y");
 		job.setPostDate(new java.util.Date());
 		
-		assertTrue("Problems in Inserting Job",jobDAO.addJob(job));
+		assertTrue("Problem in Inserting Job",jobDAO.addJob(job));
 	}
 	
+	@Ignore
+	@Test
+	public void getJobTest(){
+		Job job=(Job)jobDAO.getJob(1);
+		
+		System.out.println("JobProfile:" + job.getJobProfile());
+		System.out.println("Status:" +job.getStatus());
+		
+		assertNotNull("job not found", job);
+	}
+	
+	@Ignore
+	@Test
+	public void deleteJobTest(){
+		Job job=(Job)jobDAO.getJob(1);
+		assertTrue("Problem in deletion",jobDAO.deleteJob(job));
+	}
+	@Ignore
+	@Test
+	public void approveJobTest(){
+		Job job=(Job)jobDAO.getJob(2);
+		assertTrue("Problem in approving",jobDAO.approveJob(job));
+	}
 	@Ignore
 	@Test
 	public void getAllJobTest(){
-	List<Job> jobList=(List<Job>)jobDAO.getAllJobs();
-	assertNotNull("Job list not found ",jobList.get(0));
-	for(Job job:jobList)
-	{
-		System.out.println("JobID:"+ job.getJobId() + "JobProfile:"+ job.getJobProfile());
+		List<Job> jobList=(List<Job>)jobDAO.getAlljobs();
+		assertNotNull("Job list not found ",jobList.get(0));
+		for(Job job:jobList)
+		{
+			System.out.println("JObID:"+job.getJobId() + "JobProfile:"+job.getJobProfile());
+		}
 	}
-	}
-	
-	@Test
-	public void getJobTest(){
-
-	Job job=(Job)jobDAO.getJob(12);
-	System.out.println("JobProfile:" + job.getJobProfile());
-	System.out.println("JobDescription:" + job.getJobDesc());
-	
-	assertNotNull("Job not found", job);
+		
 	}
 	
-}
-

@@ -2,62 +2,62 @@ package com.niit.Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
-public class Forum {
+import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name = "FORUM")
+@Component
+public class Forum {
 	@Id
-	int forumId;
-	int UserId;
-	String forumName;
-	String forumContent;
-	String UserName;
-	String status;
-	Date createDate;
-	public int getForumId() {
-		return forumId;
-	}
-	public void setForumId(int forumId) {
-		this.forumId = forumId;
-	}
-	public String getForumName() {
-		return forumName;
-	}
-	public void setForumName(String forumName) {
-		this.forumName = forumName;
-	}
-	public String getForumContent() {
-		return forumContent;
-	}
-	public void setForumContent(String forumContent) {
-		this.forumContent = forumContent;
-	}
-	public String getUserName() {
-		return UserName;
-	}
-	public void setUserName(String userName) {
-		UserName = userName;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	public int getUserId() {
-		return UserId;
-	}
-	public void setUserId(int userId) {
-		UserId = userId;
-	}
+	 @GeneratedValue
+     @Column(name = "FORUM_ID")
+private int ForumId;
+private String ForumContent;
+private String ForumName;
+private int UserId;
+private Date CreateDate;
+private String Status;
+public int getForumId() {
+	return ForumId;
+}
+public void setForumId(int forumId) {
+	ForumId = forumId;
+}
+public String getForumContent() {
+	return ForumContent;
+}
+public void setForumContent(String forumContent) {
+	ForumContent = forumContent;
+}
+public String getForumName() {
+	return ForumName;
+}
+public void setForumName(String forumName) {
+	ForumName = forumName;
+}
+public int getUserId() {
+	return UserId;
+}
+public void setUserId(int userId) {
+	UserId = userId;
+}
+public Date getCreateDate() {
+	return CreateDate;
+}
+public void setCreateDate(Date createDate) {
+	CreateDate = createDate;
+}
+public String getStatus() {
+	return Status;
+}
+public void setStatus(String status) {
+	Status = status;
+}
+
 }

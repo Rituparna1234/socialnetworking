@@ -6,14 +6,20 @@ import com.niit.Model.UserDetail;
 
 
 
-
 public interface UserDetailDAO {
-	
-	public boolean addUserDetail(UserDetail user);
-	public boolean updateOnlineStatus(String status, UserDetail user);
 
-	public List<UserDetail> getAllUserDetails();
-	public UserDetail getUserDetails(String username);
+public boolean addUser(UserDetail user);
 	
-
+	public boolean updateUser(UserDetail user);
+	
+	public boolean deleteUser(UserDetail user);
+	
+	public UserDetail getUser(int userId);
+	
+	public List<UserDetail> getAllusers();
+	
+	public boolean approveUser(UserDetail user);
+	
+	public boolean rejectUser(UserDetail user);
+	
 }

@@ -2,85 +2,67 @@ package com.niit.Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@SuppressWarnings("unused")
+import org.springframework.stereotype.Component;
 @Entity
-@Table
+@Table(name = "BLOG")
+@Component
 public class Blog {
 	@Id
-
-	int blogId;
-	
-	String blogName;
-	String blogContent;
-	int userId;
-	String status;
-	int likes;
-	
-	Date createDate;
-
-	public int getBlogId() {
-		return blogId;
-	}
-
-	public void setBlogId(int blogId) {
-		this.blogId = blogId;
-	}
-
-	public String getBlogName() {
-		return blogName;
-	}
-
-	public void setBlogName(String blogName) {
-		this.blogName = blogName;
-	}
-
-	public String getBlogContent() {
-		return blogContent;
-	}
-
-	public void setBlogContent(String blogContent) {
-		this.blogContent = blogContent;
-	}
-
-	
-	
-
-	
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public int getLikes() {
-		return likes;
-	}
-
-	public void setLikes(int likes) {
-		this.likes = likes;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+	 @GeneratedValue
+     @Column(name = "BLOG_ID")
+private int BlogId;
+private String BlogContent;
+private String BlogName;
+private int UserId;
+private Date CreateDate;
+private int Likes;
+private String Status;
+public int getBlogId() {
+	return BlogId;
+}
+public void setBlogId(int blogId) {
+	BlogId = blogId;
+}
+public String getBlogContent() {
+	return BlogContent;
+}
+public void setBlogContent(String blogContent) {
+	BlogContent = blogContent;
+}
+public String getBlogName() {
+	return BlogName;
+}
+public void setBlogName(String blogName) {
+	BlogName = blogName;
+}
+public int getUserId() {
+	return UserId;
+}
+public void setUserId(int userId) {
+	UserId = userId;
+}
+public int getLikes() {
+	return Likes;
+}
+public void setLikes(int likes) {
+	Likes = likes;
+}
+public String getStatus() {
+	return Status;
+}
+public void setStatus(String status) {
+	Status = status;
+}
+public Date getCreateDate() {
+	return CreateDate;
+}
+public void setCreateDate(Date createDate) {
+	CreateDate = createDate;
+}
 }
