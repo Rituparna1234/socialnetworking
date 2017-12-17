@@ -1,5 +1,8 @@
 com\niit\Model\Blog.class
+com\niit\controller\JobController.class
+com\niit\controller\FriendController.class
 com\niit\DAO\BlogDAOImpl.class
+com\niit\controller\ForumController.class
 com\niit\Config\WebInitializer.class
 com\niit\controller\BlogController.class
 com\niit\DAO\UserDetailDAO.class

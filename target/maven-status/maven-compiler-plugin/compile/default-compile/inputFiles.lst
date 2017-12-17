@@ -1,9 +1,11 @@
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\Friend.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Config\DbConfig.java
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\controller\JobController.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\UserDetailDAOImpl.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\BlogDAO.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\ForumDAOImpl.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\BlogDAOImpl.java
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\controller\FriendController.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\FriendDAO.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\JobDAO.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\UserDetailDAO.java
@@ -15,5 +17,6 @@ F:\workspace\socialnetworkBackend\src\main\java\com\niit\Config\WebResolver.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Config\WebInitializer.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\Job.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\UserDetail.java
+F:\workspace\socialnetworkBackend\src\main\java\com\niit\controller\ForumController.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\DAO\JobDAOImpl.java
 F:\workspace\socialnetworkBackend\src\main\java\com\niit\Model\Blog.java
